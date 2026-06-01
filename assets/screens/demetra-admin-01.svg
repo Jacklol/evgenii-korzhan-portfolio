@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="30" flood-color="#122017" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="#eef5ec"/>
+  <rect x="34" y="34" width="1132" height="692" rx="22" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="34" y="34" width="224" height="692" rx="22" fill="#163f2a"/>
+  <text x="72" y="92" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#ffffff">Demetra</text>
+  <text x="72" y="130" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#b9d7bd">Admin panel</text>
+  <rect x="64" y="184" width="154" height="40" rx="10" fill="#4f9b52"/>
+  <rect x="64" y="250" width="132" height="14" rx="7" fill="#ffffff" opacity="0.35"/>
+  <rect x="64" y="302" width="118" height="14" rx="7" fill="#ffffff" opacity="0.28"/>
+  <rect x="64" y="354" width="146" height="14" rx="7" fill="#ffffff" opacity="0.28"/>
+  <rect x="64" y="406" width="112" height="14" rx="7" fill="#ffffff" opacity="0.28"/>
+  <text x="306" y="98" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" fill="#16231a">Sales dashboard</text>
+  <text x="306" y="130" font-family="Inter, Arial, sans-serif" font-size="15" fill="#66756b">Revenue, active orders and manager performance</text>
+  <rect x="306" y="176" width="244" height="120" rx="18" fill="#f3f8f1"/>
+  <text x="332" y="216" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#6b7a6d">Monthly revenue</text>
+  <text x="332" y="262" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#163f2a">1 240 000 ₽</text>
+  <rect x="580" y="176" width="244" height="120" rx="18" fill="#f8f5eb"/>
+  <text x="606" y="216" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#7d7254">Orders</text>
+  <text x="606" y="262" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#806327">186</text>
+  <rect x="854" y="176" width="244" height="120" rx="18" fill="#eef4f7"/>
+  <text x="880" y="216" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#637883">Plan progress</text>
+  <text x="880" y="262" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#2e6f95">92%</text>
+  <rect x="306" y="340" width="514" height="300" rx="18" fill="#fbfdf9" stroke="#dbe6d9"/>
+  <text x="332" y="382" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#16231a">Revenue by week</text>
+  <rect x="350" y="548" width="56" height="52" rx="10" fill="#b7d8b4"/>
+  <rect x="430" y="498" width="56" height="102" rx="10" fill="#4f9b52"/>
+  <rect x="510" y="526" width="56" height="74" rx="10" fill="#8cc47c"/>
+  <rect x="590" y="458" width="56" height="142" rx="10" fill="#2e7f44"/>
+  <rect x="670" y="412" width="56" height="188" rx="10" fill="#163f2a"/>
+  <rect x="854" y="340" width="244" height="300" rx="18" fill="#fbfdf9" stroke="#dbe6d9"/>
+  <text x="880" y="382" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#16231a">Top managers</text>
+  <rect x="880" y="422" width="176" height="14" rx="7" fill="#163f2a" opacity="0.18"/>
+  <rect x="880" y="462" width="150" height="14" rx="7" fill="#4f9b52" opacity="0.45"/>
+  <rect x="880" y="502" width="196" height="14" rx="7" fill="#163f2a" opacity="0.18"/>
+  <rect x="880" y="542" width="132" height="14" rx="7" fill="#4f9b52" opacity="0.45"/>
+  <rect x="880" y="582" width="168" height="14" rx="7" fill="#163f2a" opacity="0.18"/>
+</svg>

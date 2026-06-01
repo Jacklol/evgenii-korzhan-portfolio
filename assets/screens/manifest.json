@@ -1,0 +1,184 @@
+{
+  "ypa": [
+    {
+      "src": "./assets/screens/ypa-01.svg",
+      "title": "Finance dashboard",
+      "subtitle": "Balance, cashflow, budget health"
+    },
+    {
+      "src": "./assets/screens/ypa-02.svg",
+      "title": "AI money coach",
+      "subtitle": "Personal advice and next actions"
+    },
+    {
+      "src": "./assets/screens/ypa-03.svg",
+      "title": "Debt plan",
+      "subtitle": "Payments, progress, payoff path"
+    },
+    {
+      "src": "./assets/screens/ypa-04.svg",
+      "title": "Spending alerts",
+      "subtitle": "Card activity and risk signals"
+    },
+    {
+      "src": "./assets/screens/ypa-05.svg",
+      "title": "Credit insights",
+      "subtitle": "Score factors and recommendations"
+    }
+  ],
+  "empiflow": [
+    {
+      "src": "./assets/screens/empiflow-01.svg",
+      "title": "Welcome journey",
+      "subtitle": "Personalized onboarding path"
+    },
+    {
+      "src": "./assets/screens/empiflow-02.svg",
+      "title": "Task checklist",
+      "subtitle": "Required actions and progress"
+    },
+    {
+      "src": "./assets/screens/empiflow-03.svg",
+      "title": "Learning module",
+      "subtitle": "Content, quiz, confirmation"
+    },
+    {
+      "src": "./assets/screens/empiflow-04.svg",
+      "title": "Documents",
+      "subtitle": "Forms and company policies"
+    },
+    {
+      "src": "./assets/screens/empiflow-05.svg",
+      "title": "Progress overview",
+      "subtitle": "Manager visibility and status"
+    }
+  ],
+  "demetra": [
+    {
+      "src": "./assets/screens/demetra-01.svg",
+      "title": "Secure login",
+      "subtitle": "Email, password, PIN and Face ID"
+    },
+    {
+      "src": "./assets/screens/demetra-02.svg",
+      "title": "Manager dashboard",
+      "subtitle": "Sales, revenue and team progress"
+    },
+    {
+      "src": "./assets/screens/demetra-03.svg",
+      "title": "Catalog",
+      "subtitle": "Agricultural product categories"
+    },
+    {
+      "src": "./assets/screens/demetra-04.svg",
+      "title": "Product details",
+      "subtitle": "Price, availability and actions"
+    },
+    {
+      "src": "./assets/screens/demetra-05.svg",
+      "title": "Cart",
+      "subtitle": "Order lines, totals and status"
+    },
+    {
+      "src": "./assets/screens/demetra-06.svg",
+      "title": "Sales history",
+      "subtitle": "Payments, updates and labels"
+    },
+    {
+      "src": "./assets/screens/demetra-07.svg",
+      "title": "Profile",
+      "subtitle": "User settings and account data"
+    }
+  ],
+  "hr": [
+    {
+      "src": "./assets/screens/hr-01.svg",
+      "title": "Employee hub",
+      "subtitle": "Profile, tasks, approvals"
+    },
+    {
+      "src": "./assets/screens/hr-02.svg",
+      "title": "Time off",
+      "subtitle": "Request flow and balance"
+    },
+    {
+      "src": "./assets/screens/hr-03.svg",
+      "title": "Approvals",
+      "subtitle": "Manager decisions and comments"
+    },
+    {
+      "src": "./assets/screens/hr-04.svg",
+      "title": "Schedule",
+      "subtitle": "Calendar and reminders"
+    },
+    {
+      "src": "./assets/screens/hr-05.svg",
+      "title": "Offline sync",
+      "subtitle": "Local queue and status"
+    }
+  ],
+  "rutilus": [
+    {
+      "src": "./assets/screens/rutilus-01.svg",
+      "title": "Document registry",
+      "subtitle": "Norilsk Nickel enterprise files"
+    },
+    {
+      "src": "./assets/screens/rutilus-02.svg",
+      "title": "Fast search",
+      "subtitle": "Filters, categories and owners"
+    },
+    {
+      "src": "./assets/screens/rutilus-03.svg",
+      "title": "Document viewer",
+      "subtitle": "PDF preview and metadata"
+    },
+    {
+      "src": "./assets/screens/rutilus-04.svg",
+      "title": "Approval route",
+      "subtitle": "Statuses, comments and actions"
+    },
+    {
+      "src": "./assets/screens/rutilus-05.svg",
+      "title": "Offline cache",
+      "subtitle": "Sync queue and local files"
+    },
+    {
+      "src": "./assets/screens/rutilus-06.svg",
+      "title": "Large lists",
+      "subtitle": "Optimized rendering at scale"
+    },
+    {
+      "src": "./assets/screens/rutilus-07.svg",
+      "title": "Profile access",
+      "subtitle": "Roles, permissions and settings"
+    }
+  ],
+  "auto": [
+    {
+      "src": "./assets/screens/auto-01.svg",
+      "title": "Vehicle capture",
+      "subtitle": "Camera workflow and metadata"
+    },
+    {
+      "src": "./assets/screens/auto-02.svg",
+      "title": "Media gallery",
+      "subtitle": "Images, videos, checks"
+    },
+    {
+      "src": "./assets/screens/auto-03.svg",
+      "title": "360 preview",
+      "subtitle": "Theta device content flow"
+    },
+    {
+      "src": "./assets/screens/auto-04.svg",
+      "title": "Upload queue",
+      "subtitle": "API sync and retry states"
+    },
+    {
+      "src": "./assets/screens/auto-05.svg",
+      "title": "Listing details",
+      "subtitle": "Vehicle data and publishing"
+    }
+  ]
+}

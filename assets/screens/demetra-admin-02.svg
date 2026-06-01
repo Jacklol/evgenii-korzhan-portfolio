@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="30" flood-color="#122017" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="#eef5ec"/>
+  <rect x="34" y="34" width="1132" height="692" rx="22" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="306" y="82" width="792" height="48" rx="14" fill="#f3f8f1"/>
+  <text x="306" y="70" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" fill="#16231a">Orders and catalog management</text>
+  <text x="330" y="113" font-family="Inter, Arial, sans-serif" font-size="14" fill="#6b7a6d">Search by customer, product, region or order status</text>
+  <rect x="72" y="82" width="166" height="48" rx="14" fill="#163f2a"/>
+  <text x="102" y="113" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#ffffff">New order</text>
+  <rect x="72" y="178" width="214" height="482" rx="18" fill="#f8faf4" stroke="#dbe6d9"/>
+  <text x="100" y="220" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#16231a">Filters</text>
+  <rect x="100" y="260" width="146" height="14" rx="7" fill="#163f2a" opacity="0.18"/>
+  <rect x="100" y="306" width="120" height="14" rx="7" fill="#163f2a" opacity="0.18"/>
+  <rect x="100" y="352" width="154" height="14" rx="7" fill="#4f9b52" opacity="0.45"/>
+  <rect x="100" y="398" width="112" height="14" rx="7" fill="#163f2a" opacity="0.18"/>
+  <rect x="100" y="444" width="138" height="14" rx="7" fill="#163f2a" opacity="0.18"/>
+  <rect x="100" y="530" width="148" height="42" rx="12" fill="#4f9b52"/>
+  <text x="132" y="557" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#ffffff">Apply filters</text>
+  <rect x="326" y="178" width="772" height="482" rx="18" fill="#fbfdf9" stroke="#dbe6d9"/>
+  <rect x="326" y="178" width="772" height="58" rx="18" fill="#f3f8f1"/>
+  <text x="356" y="214" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#516258">Customer</text>
+  <text x="594" y="214" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#516258">Product</text>
+  <text x="796" y="214" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#516258">Total</text>
+  <text x="956" y="214" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#516258">Status</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#17211d">
+    <text x="356" y="282">Osipov Alexander</text>
+    <text x="594" y="282">Seeds package</text>
+    <text x="796" y="282">150 000 ₽</text>
+    <text x="356" y="342">Verush Marina</text>
+    <text x="594" y="342">Microfertilizers</text>
+    <text x="796" y="342">405 000 ₽</text>
+    <text x="356" y="402">AgroMarket LLC</text>
+    <text x="594" y="402">Plant protection</text>
+    <text x="796" y="402">92 000 ₽</text>
+    <text x="356" y="462">Green Field</text>
+    <text x="594" y="462">Veterinary drugs</text>
+    <text x="796" y="462">78 000 ₽</text>
+    <text x="356" y="522">Farm Group</text>
+    <text x="594" y="522">Seeds package</text>
+    <text x="796" y="522">210 000 ₽</text>
+  </g>
+  <rect x="948" y="260" width="92" height="28" rx="14" fill="#dff1dc"/>
+  <text x="971" y="279" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#287a39">Paid</text>
+  <rect x="948" y="320" width="92" height="28" rx="14" fill="#fff0cb"/>
+  <text x="963" y="339" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#8b681f">Pending</text>
+  <rect x="948" y="380" width="92" height="28" rx="14" fill="#dff1dc"/>
+  <text x="971" y="399" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#287a39">Paid</text>
+  <rect x="948" y="440" width="92" height="28" rx="14" fill="#eef4f7"/>
+  <text x="963" y="459" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#2e6f95">Draft</text>
+  <rect x="948" y="500" width="92" height="28" rx="14" fill="#dff1dc"/>
+  <text x="971" y="519" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#287a39">Paid</text>
+  <line x1="326" y1="296" x2="1098" y2="296" stroke="#dbe6d9"/>
+  <line x1="326" y1="356" x2="1098" y2="356" stroke="#dbe6d9"/>
+  <line x1="326" y1="416" x2="1098" y2="416" stroke="#dbe6d9"/>
+  <line x1="326" y1="476" x2="1098" y2="476" stroke="#dbe6d9"/>
+  <line x1="326" y1="536" x2="1098" y2="536" stroke="#dbe6d9"/>
+</svg>

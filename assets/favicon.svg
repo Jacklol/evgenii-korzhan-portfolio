@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Evgenii Korzhan React Native portfolio">
+  <rect width="64" height="64" rx="14" fill="#17211d"/>
+  <path d="M14 42V16h21v7H22v3h12v7H22v3h14v6H14Z" fill="#f7f8f5"/>
+  <path d="M39 42V16h8v10l8-10h9L53 29l11 13h-9l-8-10v10h-8Z" fill="#9bd0b7"/>
+  <path d="M13 49h38" stroke="#c85f46" stroke-width="4" stroke-linecap="round"/>
+</svg>
