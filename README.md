@@ -10,6 +10,12 @@ Static portfolio website for React Native client calls.
 
 ## Deployment
 
-This repository is configured for GitHub Pages through GitHub Actions.
+This repository is ready for GitHub Pages.
 
-After every push to `main`, the workflow in `.github/workflows/pages.yml` publishes the repository root as the website.
+Recommended GitHub Pages settings:
+
+- Source: `Deploy from a branch`
+- Branch: `main`
+- Folder: `/root`
+
+After that, every push to `main` updates the website automatically.
