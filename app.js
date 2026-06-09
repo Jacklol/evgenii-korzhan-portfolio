@@ -136,6 +136,7 @@ function setupRevealAnimations() {
 setupRevealAnimations();
 
 function setupParticleShowcase() {
+  const widget = document.querySelector("[data-particle-widget]");
   const shell = document.querySelector("[data-particle-showcase]");
   const canvas = document.querySelector("[data-particle-canvas]");
   const tooltip = document.querySelector("[data-particle-tooltip]");
@@ -144,10 +145,12 @@ function setupParticleShowcase() {
   const tooltipBody = document.querySelector("[data-particle-tooltip-body]");
   const gamePanel = document.querySelector("[data-particle-game]");
   const gameStartButton = document.querySelector("[data-particle-game-start]");
+  const fullscreenButton = document.querySelector("[data-particle-fullscreen]");
   const gameTime = document.querySelector("[data-particle-game-time]");
   const gameScore = document.querySelector("[data-particle-game-score]");
   const gameResult = document.querySelector("[data-particle-game-result]");
   if (!shell || !canvas) return;
+  const fullscreenTarget = widget || shell;
 
   const context = canvas.getContext("2d");
   if (!context) return;
@@ -258,6 +261,96 @@ function setupParticleShowcase() {
     return Math.min(Math.max(value, min), max);
   }
 
+  let localFullscreenScrollY = 0;
+
+  function getNativeFullscreenElement() {
+    return document.fullscreenElement || document.webkitFullscreenElement || null;
+  }
+
+  function isLocalFullscreenActive() {
+    return fullscreenTarget.classList.contains("is-local-fullscreen");
+  }
+
+  function isFullscreenActive() {
+    return getNativeFullscreenElement() === fullscreenTarget || isLocalFullscreenActive();
+  }
+
+  function updateFullscreenButton() {
+    if (!fullscreenButton) return;
+
+    const active = isFullscreenActive();
+    const label = active ? "Exit full screen" : "Open full screen";
+    fullscreenButton.setAttribute("aria-label", label);
+    fullscreenButton.setAttribute("title", label);
+    fullscreenButton.classList.toggle("is-active", active);
+    fullscreenTarget.classList.toggle("is-fullscreen", active);
+  }
+
+  function enterLocalFullscreen() {
+    localFullscreenScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    fullscreenTarget.classList.add("is-local-fullscreen");
+    document.documentElement.classList.add("particle-fullscreen-lock");
+    document.body.classList.add("particle-fullscreen-lock");
+    updateFullscreenButton();
+    redrawAfterLayoutChange();
+  }
+
+  function exitLocalFullscreen() {
+    fullscreenTarget.classList.remove("is-local-fullscreen");
+    document.documentElement.classList.remove("particle-fullscreen-lock");
+    document.body.classList.remove("particle-fullscreen-lock");
+    updateFullscreenButton();
+    redrawAfterLayoutChange();
+    window.scrollTo(0, localFullscreenScrollY);
+  }
+
+  function redrawAfterLayoutChange() {
+    window.cancelAnimationFrame(state.frame);
+    resizeCanvas();
+    if (state.game.running) {
+      fillGameTargets();
+    }
+    drawFrame();
+  }
+
+  function setGameStateClass(className, enabled) {
+    shell.classList.toggle(className, enabled);
+    if (widget) {
+      widget.classList.toggle(className, enabled);
+    }
+  }
+
+  async function toggleFullscreen(event) {
+    if (event) {
+      event.stopPropagation();
+    }
+
+    try {
+      if (isLocalFullscreenActive()) {
+        exitLocalFullscreen();
+        return;
+      }
+
+      if (getNativeFullscreenElement() === fullscreenTarget) {
+        if (document.exitFullscreen) {
+          await document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
+        return;
+      }
+
+      const requestFullscreen = fullscreenTarget.requestFullscreen || fullscreenTarget.webkitRequestFullscreen;
+      if (requestFullscreen) {
+        await requestFullscreen.call(fullscreenTarget);
+      } else {
+        enterLocalFullscreen();
+      }
+    } catch (error) {
+      enterLocalFullscreen();
+    }
+  }
+
   function assignSkillHotspots() {
     const usedIndexes = new Set();
     const maxIndex = Math.max(0, state.particles.length - 1);
@@ -283,20 +376,23 @@ function setupParticleShowcase() {
   function createParticles() {
     const previousParticles = state.particles;
     const area = state.width * state.height;
-    const count = reduceMotion ? 78 : Math.min(220, Math.max(112, Math.floor(area / 2350)));
+    const count = reduceMotion ? 88 : Math.min(260, Math.max(128, Math.floor(area / 2100)));
     const centerX = state.width / 2;
     const centerY = state.height / 2;
-    const reach = Math.min(state.width, state.height) * 0.44;
+    const padding = state.width < 430 ? 18 : 24;
 
     state.particles = Array.from({ length: count }, (_, index) => {
       const ratio = index / Math.max(1, count - 1);
-      const arm = index % 5;
       const seed = index + 1;
-      const wave = randomFor(seed * 1.7);
-      const angle = ratio * Math.PI * 11.5 + arm * ((Math.PI * 2) / 5);
-      const distance = Math.sqrt(ratio) * reach * (0.72 + wave * 0.42);
-      const baseX = centerX + Math.cos(angle) * distance;
-      const baseY = centerY + Math.sin(angle) * distance * (0.64 + randomFor(seed * 3.1) * 0.28);
+      const angle = index * 2.3999632297 + (randomFor(seed * 1.7) - 0.5) * 0.95;
+      const radius = Math.sqrt(ratio) * (0.86 + randomFor(seed * 2.3) * 0.2);
+      const fieldX = state.width * (0.43 + randomFor(seed * 3.1) * 0.08);
+      const fieldY = state.height * (0.37 + randomFor(seed * 4.7) * 0.09);
+      const jitterX = (randomFor(seed * 6.3) - 0.5) * state.width * 0.2;
+      const jitterY = (randomFor(seed * 8.9) - 0.5) * state.height * 0.18;
+      const baseX = clamp(centerX + Math.cos(angle) * radius * fieldX + jitterX, padding, state.width - padding);
+      const baseY = clamp(centerY + Math.sin(angle) * radius * fieldY + jitterY, padding, state.height - padding);
+      const baseZ = (randomFor(seed * 10.7) - 0.5) * Math.min(state.width, state.height) * 0.72;
       const previous = previousParticles[index];
 
       return {
@@ -305,6 +401,9 @@ function setupParticleShowcase() {
         y: previous ? previous.y : baseY,
         baseX,
         baseY,
+        baseZ,
+        depthAlpha: previous ? previous.depthAlpha : 1,
+        depthScale: previous ? previous.depthScale : 1,
         size: 1.2 + randomFor(seed * 4.3) * 2.4,
         speed: 0.45 + randomFor(seed * 5.9) * 0.95,
         phase: randomFor(seed * 8.1) * Math.PI * 2,
@@ -354,14 +453,14 @@ function setupParticleShowcase() {
 
   function createGameMessage(score) {
     if (score > AVERAGE_POP_SCORE) {
-      return `You popped ${score} nodes. That is above the average ${AVERAGE_POP_SCORE}. You are better than most. Claim one free animation.`;
+      return `You popped ${score} nodes. You beat ${AVERAGE_POP_SCORE}. Reward unlocked: one free consultation. Promo code: ЗВЕЗДЫ.`;
     }
 
     if (score === AVERAGE_POP_SCORE) {
-      return `You popped ${score} nodes. Exactly the average. Clean run, no wasted taps.`;
+      return `You popped ${score} nodes. You hit ${AVERAGE_POP_SCORE}. Victory.`;
     }
 
-    return `You popped ${score} nodes. Average is ${AVERAGE_POP_SCORE}. Warm-up round, the next one can beat it.`;
+    return `You popped ${score} nodes. You need ${AVERAGE_POP_SCORE} to win. Try again.`;
   }
 
   function clearGameTargets() {
@@ -376,7 +475,7 @@ function setupParticleShowcase() {
   }
 
   function getTargetCandidates() {
-    const panelTop = gamePanel ? gamePanel.offsetTop : state.height - 104;
+    const panelTop = gamePanel && gamePanel.offsetParent === shell ? gamePanel.offsetTop : state.height;
     const margin = 22;
     const candidates = state.particles.filter((particle) => {
       return (
@@ -440,8 +539,8 @@ function setupParticleShowcase() {
     fillGameTargets();
     updateGameUi();
 
-    shell.classList.add("is-game-running");
-    shell.classList.remove("is-game-finished");
+    setGameStateClass("is-game-running", true);
+    setGameStateClass("is-game-finished", false);
 
     if (gameStartButton) {
       gameStartButton.disabled = true;
@@ -449,7 +548,7 @@ function setupParticleShowcase() {
     }
 
     if (gameResult) {
-      gameResult.textContent = `Pop only red targets. Average network score: ${AVERAGE_POP_SCORE}.`;
+      gameResult.textContent = `Pop only red targets. Score ${AVERAGE_POP_SCORE} to win.`;
     }
 
     if (reduceMotion) {
@@ -479,8 +578,8 @@ function setupParticleShowcase() {
     scheduleParticleRestore();
     clearGameTargets();
 
-    shell.classList.remove("is-game-running");
-    shell.classList.add("is-game-finished");
+    setGameStateClass("is-game-running", false);
+    setGameStateClass("is-game-finished", true);
 
     if (gameStartButton) {
       gameStartButton.disabled = false;
@@ -500,7 +599,7 @@ function setupParticleShowcase() {
       if (particle.popped) return;
       if (!particle.gameTarget) return;
 
-      const hitRadius = Math.max(24, particle.size * (state.width < 430 ? 9 : 7.4));
+      const hitRadius = Math.max(24, particle.size * (state.width < 430 ? 9 : 7.4) * (particle.depthScale ?? 1));
       const distance = Math.hypot(x - particle.x, y - particle.y);
 
       if (distance <= hitRadius && distance < nearestDistance) {
@@ -707,7 +806,7 @@ function setupParticleShowcase() {
   }
 
   function drawConnections() {
-    const maxDistance = Math.min(state.width, state.height) * (state.pointer.force > 0.1 ? 0.22 : 0.16);
+    const maxDistance = Math.min(state.width, state.height) * (state.pointer.force > 0.1 ? 0.25 : 0.19);
     context.lineWidth = 1;
 
     for (let i = 0; i < state.particles.length; i += 1) {
@@ -724,7 +823,8 @@ function setupParticleShowcase() {
 
         if (distance < maxDistance) {
           const restoreAlpha = (first.restoreProgress ?? 1) * (second.restoreProgress ?? 1);
-          const alpha = (1 - distance / maxDistance) * (0.14 + state.pointer.force * 0.18) * restoreAlpha;
+          const depthAlpha = ((first.depthAlpha ?? 1) + (second.depthAlpha ?? 1)) * 0.5;
+          const alpha = (1 - distance / maxDistance) * (0.14 + state.pointer.force * 0.18) * restoreAlpha * depthAlpha;
           context.strokeStyle = `rgba(190, 233, 211, ${alpha})`;
           context.beginPath();
           context.moveTo(first.x, first.y);
@@ -738,16 +838,19 @@ function setupParticleShowcase() {
   function drawSkillMarkers(timeSeconds) {
     state.particles.forEach((particle) => {
       if (!particle.skill) return;
+      if (particle.popped) return;
 
       const isActive = particle.skill.id === state.activeSkillId;
       const pulse = reduceMotion ? 1 : 1 + Math.sin(timeSeconds * 3 + particle.skill.order) * 0.12;
-      const radius = particle.size + (isActive ? 10 : 6) * pulse;
+      const depthScale = particle.depthScale ?? 1;
+      const depthAlpha = particle.depthAlpha ?? 1;
+      const radius = (particle.size + (isActive ? 10 : 6) * pulse) * depthScale;
 
       context.save();
       context.lineWidth = isActive ? 2.3 : 1.35;
       context.shadowBlur = isActive ? 18 : 8;
       context.shadowColor = `rgba(${particle.color}, ${isActive ? 0.65 : 0.36})`;
-      context.strokeStyle = `rgba(${particle.color}, ${isActive ? 0.95 : 0.62})`;
+      context.strokeStyle = `rgba(${particle.color}, ${(isActive ? 0.95 : 0.62) * depthAlpha})`;
       context.beginPath();
       context.arc(particle.x, particle.y, radius, 0, Math.PI * 2);
       context.stroke();
@@ -761,7 +864,7 @@ function setupParticleShowcase() {
     const targetForce = state.pointer.active ? 1 : 0;
     state.pointer.force += (targetForce - state.pointer.force) * (reduceMotion ? 1 : 0.08);
 
-    const targetRotationSpeed = state.pointer.holding && !reduceMotion ? 0.012 : 0;
+    const targetRotationSpeed = state.pointer.holding && !reduceMotion ? 0.018 : 0;
     state.rotationSpeed += (targetRotationSpeed - state.rotationSpeed) * 0.08;
     state.rotation += state.rotationSpeed;
 
@@ -783,8 +886,15 @@ function setupParticleShowcase() {
     const centerY = state.height / 2;
     const expansion = 1 + state.pointer.force * 0.34;
     const influence = Math.min(state.width, state.height) * 0.42;
-    const rotationCos = Math.cos(state.rotation);
-    const rotationSin = Math.sin(state.rotation);
+    const minDimension = Math.min(state.width, state.height);
+    const tiltX = state.rotation * 0.72;
+    const tiltY = state.rotation;
+    const tiltXCos = Math.cos(tiltX);
+    const tiltXSin = Math.sin(tiltX);
+    const tiltYCos = Math.cos(tiltY);
+    const tiltYSin = Math.sin(tiltY);
+    const perspectiveDistance = minDimension * 1.55;
+    const visibleParticles = [];
 
     state.particles.forEach((particle, index) => {
       if (particle.popped) return;
@@ -793,8 +903,17 @@ function setupParticleShowcase() {
       const driftY = reduceMotion ? 0 : Math.sin(timeSeconds * (particle.speed + 0.18) + particle.phase) * 8;
       const baseDx = (particle.baseX - centerX) * expansion;
       const baseDy = (particle.baseY - centerY) * expansion;
-      let targetX = centerX + baseDx * rotationCos - baseDy * rotationSin + driftX;
-      let targetY = centerY + baseDx * rotationSin + baseDy * rotationCos + driftY;
+      const baseDz = particle.baseZ * (0.78 + state.pointer.force * 0.62);
+      const tiltedY = baseDy * tiltXCos - baseDz * tiltXSin;
+      const tiltedZ = baseDy * tiltXSin + baseDz * tiltXCos;
+      const rotatedX = baseDx * tiltYCos + tiltedZ * tiltYSin;
+      const rotatedZ = -baseDx * tiltYSin + tiltedZ * tiltYCos;
+      const perspective = clamp(perspectiveDistance / (perspectiveDistance + rotatedZ), 0.68, 1.34);
+      const projectionScale = 1 + (perspective - 1) * 0.82;
+      let targetX = centerX + rotatedX * projectionScale + driftX;
+      let targetY = centerY + tiltedY * projectionScale + driftY;
+      particle.depthScale = projectionScale;
+      particle.depthAlpha = clamp(0.45 + (projectionScale - 0.68) * 1.05, 0.42, 1);
 
       if (state.pointer.force > 0.02) {
         const pointerDx = state.pointer.x - particle.x;
@@ -815,8 +934,18 @@ function setupParticleShowcase() {
       const pulse = reduceMotion ? 1 : 1 + Math.sin(timeSeconds * 1.9 + index) * 0.16;
       const restoreProgress = particle.restoreProgress ?? 1;
       const gameScale = state.game.running ? (particle.gameTarget ? 3.8 : 1.12) : 1;
-      const radius = particle.size * pulse * gameScale * (1 + state.pointer.force * 0.45) * (0.72 + restoreProgress * 0.28);
+      const radius = particle.size * pulse * gameScale * projectionScale * (1 + state.pointer.force * 0.45) * (0.72 + restoreProgress * 0.28);
       const particleColor = state.game.running && particle.gameTarget ? TARGET_COLOR : particle.color;
+      particle.renderRadius = radius;
+      particle.renderColor = particleColor;
+      particle.renderAlpha = (0.58 + state.pointer.force * 0.25) * restoreProgress * particle.depthAlpha;
+      visibleParticles.push(particle);
+    });
+
+    drawConnections();
+
+    visibleParticles.sort((first, second) => (first.depthScale ?? 1) - (second.depthScale ?? 1));
+    visibleParticles.forEach((particle) => {
       context.save();
       if (state.game.running && particle.gameTarget) {
         context.shadowBlur = 24;
@@ -825,9 +954,9 @@ function setupParticleShowcase() {
         context.shadowBlur = 4;
         context.shadowColor = `rgba(${particle.color}, 0.22)`;
       }
-      context.fillStyle = `rgba(${particleColor}, ${(0.58 + state.pointer.force * 0.25) * restoreProgress})`;
+      context.fillStyle = `rgba(${particle.renderColor}, ${particle.renderAlpha})`;
       context.beginPath();
-      context.arc(particle.x, particle.y, radius, 0, Math.PI * 2);
+      context.arc(particle.x, particle.y, particle.renderRadius, 0, Math.PI * 2);
       context.fill();
 
       if (state.game.running && particle.gameTarget) {
@@ -839,7 +968,6 @@ function setupParticleShowcase() {
       context.restore();
     });
 
-    drawConnections();
     if (!state.game.running) {
       drawSkillMarkers(timeSeconds);
     }
@@ -856,6 +984,7 @@ function setupParticleShowcase() {
   }
 
   resizeCanvas();
+  updateFullscreenButton();
   drawFrame();
 
   if (!reduceMotion) {
@@ -881,14 +1010,26 @@ function setupParticleShowcase() {
     gameStartButton.addEventListener("click", startGame);
   }
 
-  window.addEventListener("resize", () => {
-    window.cancelAnimationFrame(state.frame);
-    resizeCanvas();
-    if (state.game.running) {
-      fillGameTargets();
-    }
-    drawFrame();
+  if (fullscreenButton) {
+    fullscreenButton.addEventListener("pointerdown", (event) => event.stopPropagation());
+    fullscreenButton.addEventListener("click", toggleFullscreen);
+  }
+
+  document.addEventListener("fullscreenchange", () => {
+    updateFullscreenButton();
+    redrawAfterLayoutChange();
   });
+  document.addEventListener("webkitfullscreenchange", () => {
+    updateFullscreenButton();
+    redrawAfterLayoutChange();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isLocalFullscreenActive()) {
+      exitLocalFullscreen();
+    }
+  });
+
+  window.addEventListener("resize", redrawAfterLayoutChange);
 }
 
 setupParticleShowcase();

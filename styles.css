@@ -27,6 +27,11 @@ body {
   line-height: 1.5;
 }
 
+html.particle-fullscreen-lock,
+body.particle-fullscreen-lock {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
 }
@@ -140,6 +145,12 @@ h1 {
   will-change: transform;
 }
 
+.particle-widget {
+  display: grid;
+  gap: 22px;
+  width: 100%;
+}
+
 .particle-showcase {
   position: relative;
   display: block;
@@ -208,6 +219,61 @@ h1 {
   outline-offset: 6px;
 }
 
+.particle-widget:fullscreen,
+.particle-widget:-webkit-full-screen,
+.particle-widget.is-fullscreen {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  padding: 18px;
+  overflow: hidden;
+  background: #121a17;
+}
+
+.particle-widget.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.particle-widget:fullscreen .particle-showcase,
+.particle-widget:-webkit-full-screen .particle-showcase,
+.particle-widget.is-fullscreen .particle-showcase,
+.particle-widget:fullscreen .particle-showcase:hover,
+.particle-widget:-webkit-full-screen .particle-showcase:hover,
+.particle-widget.is-fullscreen .particle-showcase:hover,
+.particle-widget:fullscreen .particle-showcase:focus-visible,
+.particle-widget:-webkit-full-screen .particle-showcase:focus-visible,
+.particle-widget.is-fullscreen .particle-showcase:focus-visible,
+.particle-widget:fullscreen .particle-showcase.is-active,
+.particle-widget:-webkit-full-screen .particle-showcase.is-active,
+.particle-widget.is-fullscreen .particle-showcase.is-active {
+  height: 100%;
+  min-height: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  aspect-ratio: auto;
+}
+
+.particle-widget:fullscreen .particle-game,
+.particle-widget:-webkit-full-screen .particle-game,
+.particle-widget.is-fullscreen .particle-game {
+  margin-right: max(0px, env(safe-area-inset-right));
+  margin-bottom: max(0px, env(safe-area-inset-bottom));
+  margin-left: max(0px, env(safe-area-inset-left));
+}
+
+.particle-widget:fullscreen .particle-fullscreen-button,
+.particle-widget:-webkit-full-screen .particle-fullscreen-button,
+.particle-widget.is-fullscreen .particle-fullscreen-button {
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+}
+
 .particle-canvas {
   position: absolute;
   inset: 0;
@@ -268,12 +334,59 @@ h1 {
   opacity: 0;
 }
 
-.particle-game {
+.particle-fullscreen-button {
   position: absolute;
-  right: 18px;
-  bottom: 18px;
-  left: 18px;
-  z-index: 4;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(238, 246, 242, 0.22);
+  border-radius: 8px;
+  background: rgba(12, 18, 16, 0.68);
+  color: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+  backdrop-filter: blur(10px);
+}
+
+.particle-fullscreen-button:hover,
+.particle-fullscreen-button:focus-visible {
+  border-color: rgba(238, 246, 242, 0.42);
+  background: rgba(12, 18, 16, 0.86);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.particle-fullscreen-button:focus-visible {
+  outline: 3px solid rgba(155, 208, 183, 0.32);
+  outline-offset: 3px;
+}
+
+.particle-fullscreen-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.particle-fullscreen-icon-compress,
+.particle-widget.is-fullscreen .particle-fullscreen-icon-expand {
+  display: none;
+}
+
+.particle-widget.is-fullscreen .particle-fullscreen-icon-compress {
+  display: block;
+}
+
+.particle-game {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 10px 12px;
@@ -284,12 +397,12 @@ h1 {
   background: rgba(12, 18, 16, 0.72);
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
   color: var(--white);
-  pointer-events: none;
+  pointer-events: auto;
   text-align: left;
   backdrop-filter: blur(10px);
 }
 
-.particle-showcase.is-game-running .particle-game {
+.particle-widget.is-game-running .particle-game {
   border-color: rgba(155, 208, 183, 0.42);
 }
 
@@ -322,16 +435,19 @@ h1 {
 .particle-game-start {
   min-height: 36px;
   padding: 0 14px;
-  border: 1px solid rgba(155, 208, 183, 0.5);
   border-radius: 8px;
-  background: #9bd0b7;
-  color: #0f1714;
   cursor: pointer;
   font: inherit;
   font-size: 13px;
   font-weight: 820;
   pointer-events: auto;
-  transition: background 160ms ease, transform 160ms ease;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.particle-game-start {
+  border: 1px solid rgba(155, 208, 183, 0.5);
+  background: #9bd0b7;
+  color: #0f1714;
 }
 
 .particle-game-start:hover,
@@ -354,7 +470,7 @@ h1 {
   line-height: 1.35;
 }
 
-.particle-showcase.is-game-finished .particle-game p {
+.particle-widget.is-game-finished .particle-game p {
   color: #f0d58d;
 }
 
@@ -1328,9 +1444,6 @@ footer {
   }
 
   .particle-game {
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
     grid-template-columns: 1fr;
     gap: 8px;
     padding: 10px;

@@ -35,20 +35,44 @@
             <a class="button secondary" href="mailto:localmindstudio@gmail.com">Contact me</a>
           </div>
         </div>
-        <div class="particle-showcase" data-particle-showcase aria-label="Explore React Native skill particles" tabindex="0">
-          <canvas class="particle-canvas" data-particle-canvas aria-hidden="true"></canvas>
-          <span class="particle-tooltip" data-particle-tooltip aria-hidden="true">
-            <span class="particle-tooltip-kicker" data-particle-tooltip-kicker></span>
-            <strong data-particle-tooltip-title></strong>
-            <span data-particle-tooltip-body></span>
-          </span>
+        <div class="particle-widget" data-particle-widget>
+          <div class="particle-showcase" data-particle-showcase aria-label="Explore React Native skill particles" tabindex="0">
+            <canvas class="particle-canvas" data-particle-canvas aria-hidden="true"></canvas>
+            <span class="particle-tooltip" data-particle-tooltip aria-hidden="true">
+              <span class="particle-tooltip-kicker" data-particle-tooltip-kicker></span>
+              <strong data-particle-tooltip-title></strong>
+              <span data-particle-tooltip-body></span>
+            </span>
+            <button class="particle-fullscreen-button" type="button" data-particle-fullscreen aria-label="Open full screen" title="Open full screen">
+              <svg class="particle-fullscreen-icon particle-fullscreen-icon-expand" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 4H4v5" />
+                <path d="M4 4l7 7" />
+                <path d="M15 4h5v5" />
+                <path d="M20 4l-7 7" />
+                <path d="M9 20H4v-5" />
+                <path d="M4 20l7-7" />
+                <path d="M15 20h5v-5" />
+                <path d="M20 20l-7-7" />
+              </svg>
+              <svg class="particle-fullscreen-icon particle-fullscreen-icon-compress" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 9h5V4" />
+                <path d="M11 11 4 4" />
+                <path d="M20 9h-5V4" />
+                <path d="M13 11l7-7" />
+                <path d="M4 15h5v5" />
+                <path d="M11 13l-7 7" />
+                <path d="M20 15h-5v5" />
+                <path d="M13 13l7 7" />
+              </svg>
+            </button>
+          </div>
           <div class="particle-game" data-particle-game>
             <div class="particle-game-stats" aria-live="polite">
               <span><strong data-particle-game-time>10.0</strong>s</span>
               <span><strong data-particle-game-score>0</strong> nodes</span>
             </div>
             <button class="particle-game-start" type="button" data-particle-game-start>Start 10s</button>
-            <p data-particle-game-result>Pop only red targets. Average network score: 12.</p>
+            <p data-particle-game-result>Pop only red targets. Score 12 to win.</p>
           </div>
         </div>
       </section>
