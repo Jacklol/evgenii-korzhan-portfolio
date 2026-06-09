@@ -135,8 +135,227 @@ h1 {
 .screen-link,
 .gallery-close,
 .phone,
-.skill-cube {
+.skill-cube,
+.particle-showcase {
   will-change: transform;
+}
+
+.particle-showcase {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 430px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(47, 125, 90, 0.2), transparent 34%),
+    linear-gradient(315deg, rgba(200, 95, 70, 0.18), transparent 32%),
+    linear-gradient(180deg, #121a17 0%, #1b2621 100%);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  isolation: isolate;
+  touch-action: none;
+  transform: translateZ(0);
+  user-select: none;
+  transition: box-shadow 260ms ease, transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  appearance: none;
+}
+
+.particle-showcase::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  content: "";
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+}
+
+.particle-showcase::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 0 34%, rgba(255, 255, 255, 0.16) 48%, transparent 62% 100%);
+  content: "";
+  opacity: 0;
+  transform: translateX(-58%);
+  transition: opacity 220ms ease, transform 680ms ease;
+}
+
+.particle-showcase:hover,
+.particle-showcase:focus-visible,
+.particle-showcase.is-active {
+  box-shadow: 0 30px 90px rgba(23, 33, 29, 0.24);
+  transform: scale(1.035);
+}
+
+.particle-showcase:hover::after,
+.particle-showcase:focus-visible::after,
+.particle-showcase.is-active::after {
+  opacity: 1;
+  transform: translateX(58%);
+}
+
+.particle-showcase:focus-visible {
+  outline: 3px solid rgba(47, 125, 90, 0.32);
+  outline-offset: 6px;
+}
+
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.particle-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: grid;
+  gap: 4px;
+  width: min(245px, calc(100% - 32px));
+  padding: 12px 14px;
+  border: 1px solid rgba(238, 246, 242, 0.18);
+  border-radius: 8px;
+  background: rgba(12, 18, 16, 0.82);
+  color: var(--white);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  text-align: left;
+  transform: translate3d(var(--tooltip-x, 0), var(--tooltip-y, 0), 0) scale(0.96);
+  transform-origin: 18px 18px;
+  transition: opacity 160ms ease, transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.particle-tooltip.is-visible {
+  opacity: 1;
+  transform: translate3d(var(--tooltip-x, 0), var(--tooltip-y, 0), 0) scale(1);
+}
+
+.particle-tooltip-kicker {
+  color: #9bd0b7;
+  font-size: 11px;
+  font-weight: 820;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.particle-tooltip strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.particle-tooltip span:last-child {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.particle-showcase.is-game-running .particle-tooltip {
+  opacity: 0;
+}
+
+.particle-game {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid rgba(238, 246, 242, 0.16);
+  border-radius: 8px;
+  background: rgba(12, 18, 16, 0.72);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+  color: var(--white);
+  pointer-events: none;
+  text-align: left;
+  backdrop-filter: blur(10px);
+}
+
+.particle-showcase.is-game-running .particle-game {
+  border-color: rgba(155, 208, 183, 0.42);
+}
+
+.particle-game-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.particle-game-stats span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgba(238, 246, 242, 0.15);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.particle-game-stats strong {
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.particle-game-start {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(155, 208, 183, 0.5);
+  border-radius: 8px;
+  background: #9bd0b7;
+  color: #0f1714;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 820;
+  pointer-events: auto;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.particle-game-start:hover,
+.particle-game-start:focus-visible {
+  background: #b7e4cf;
+  transform: translateY(-1px);
+}
+
+.particle-game-start:disabled {
+  cursor: default;
+  opacity: 0.76;
+  transform: none;
+}
+
+.particle-game p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.particle-showcase.is-game-finished .particle-game p {
+  color: #f0d58d;
 }
 
 .hero-media {
@@ -922,12 +1141,20 @@ footer {
   transform: translateY(0);
 }
 
-.js-animate .hero-media.reveal {
+.js-animate .hero-media.reveal,
+.js-animate .particle-showcase.reveal {
   transform: translateY(18px) scale(0.985);
 }
 
-.js-animate .hero-media.reveal.is-visible {
+.js-animate .hero-media.reveal.is-visible,
+.js-animate .particle-showcase.reveal.is-visible {
   transform: translateY(0) scale(1);
+}
+
+.js-animate .particle-showcase.reveal.is-visible:hover,
+.js-animate .particle-showcase.reveal.is-visible:focus-visible,
+.js-animate .particle-showcase.reveal.is-visible.is-active {
+  transform: translateY(0) scale(1.035);
 }
 
 .hero-media img {
@@ -1048,6 +1275,18 @@ footer {
     transform: none;
   }
 
+  .particle-showcase,
+  .particle-showcase:hover,
+  .particle-showcase:focus-visible,
+  .particle-showcase.is-active {
+    transform: none;
+  }
+
+  .particle-tooltip {
+    opacity: 1;
+    transform: none;
+  }
+
   .cube-face {
     position: static;
   }
@@ -1077,6 +1316,28 @@ footer {
 
   .hero {
     min-height: auto;
+  }
+
+  .particle-showcase {
+    min-height: min(62vh, 420px);
+    aspect-ratio: 1 / 1;
+  }
+
+  .particle-tooltip {
+    width: min(230px, calc(100% - 28px));
+  }
+
+  .particle-game {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .particle-game-start {
+    width: 100%;
   }
 
   h1 {

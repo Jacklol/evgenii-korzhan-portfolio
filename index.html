@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Evgenii Korzhan - React Native Portfolio</title>
     <meta name="theme-color" content="#17211d" />
-    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./assets/favicon.svg?v=20260609-ek" type="image/svg+xml" />
     <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./styles.css?v=20260601-copy-polish" />
+    <link rel="stylesheet" href="./styles.css?v=20260609-particles" />
   </head>
   <body>
     <header class="hero">
@@ -32,11 +32,24 @@
           <div class="hero-actions">
             <a class="button primary" href="#cases">View cases</a>
             <a class="button secondary" href="./assets/evgenii-korzhan-react-native-cv.pdf" download>Download CV</a>
-            <a class="button secondary" href="mailto:mrudjick@gmail.com">Contact me</a>
+            <a class="button secondary" href="mailto:localmindstudio@gmail.com">Contact me</a>
           </div>
         </div>
-        <div class="hero-media">
-          <img src="./assets/mobile-portfolio-hero.png" alt="Mobile app portfolio screens" />
+        <div class="particle-showcase" data-particle-showcase aria-label="Explore React Native skill particles" tabindex="0">
+          <canvas class="particle-canvas" data-particle-canvas aria-hidden="true"></canvas>
+          <span class="particle-tooltip" data-particle-tooltip aria-hidden="true">
+            <span class="particle-tooltip-kicker" data-particle-tooltip-kicker></span>
+            <strong data-particle-tooltip-title></strong>
+            <span data-particle-tooltip-body></span>
+          </span>
+          <div class="particle-game" data-particle-game>
+            <div class="particle-game-stats" aria-live="polite">
+              <span><strong data-particle-game-time>10.0</strong>s</span>
+              <span><strong data-particle-game-score>0</strong> nodes</span>
+            </div>
+            <button class="particle-game-start" type="button" data-particle-game-start>Start 10s</button>
+            <p data-particle-game-result>Pop only red targets. Average network score: 12.</p>
+          </div>
         </div>
       </section>
     </header>
@@ -395,9 +408,9 @@
           <h2>Ready to discuss your mobile app</h2>
         </div>
         <div class="contact-grid">
-          <a href="mailto:mrudjick@gmail.com">
+          <a href="mailto:localmindstudio@gmail.com">
             <span>Email</span>
-            <strong>mrudjick@gmail.com</strong>
+            <strong>localmindstudio@gmail.com</strong>
           </a>
           <a href="https://t.me/jackkorlive" target="_blank" rel="noreferrer">
             <span>Telegram</span>
@@ -438,6 +451,6 @@
       </div>
     </dialog>
     <script src="./vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="./app.js?v=20260601-copy-polish"></script>
+    <script src="./app.js?v=20260609-red-targets-free-animation"></script>
   </body>
 </html>
