@@ -146,6 +146,7 @@ h1 {
 }
 
 .particle-widget {
+  position: relative;
   display: grid;
   gap: 22px;
   width: 100%;
@@ -336,13 +337,13 @@ h1 {
 
 .particle-fullscreen-button {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   z-index: 5;
   display: inline-grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   padding: 0;
   border: 1px solid rgba(238, 246, 242, 0.22);
   border-radius: 8px;
@@ -368,8 +369,8 @@ h1 {
 }
 
 .particle-fullscreen-icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
