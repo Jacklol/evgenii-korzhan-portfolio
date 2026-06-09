@@ -520,6 +520,49 @@ h1 {
   color: var(--muted);
 }
 
+.role-fit {
+  margin-top: 58px;
+}
+
+.role-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.role-fit-card {
+  min-height: 210px;
+  padding: 22px;
+  border: 1px solid #cbd6cf;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(47, 125, 90, 0.045), transparent 42%),
+    var(--white);
+  box-shadow: 0 16px 46px rgba(23, 33, 29, 0.1);
+}
+
+.role-fit-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.role-fit-card strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 21px;
+  line-height: 1.08;
+}
+
+.role-fit-card p {
+  margin: 0;
+  color: #46534c;
+  font-size: 15px;
+}
+
 .section {
   width: min(1180px, calc(100% - 40px));
   margin: 72px auto;
@@ -1310,6 +1353,7 @@ footer {
 }
 
 .js-animate .summary .reveal,
+.js-animate .role-fit-card.reveal,
 .js-animate .resume-card.reveal,
 .js-animate .skill-grid .skill-cube.reveal,
 .js-animate .contact-grid .reveal {
@@ -1317,6 +1361,7 @@ footer {
 }
 
 .js-animate .summary .reveal.is-visible,
+.js-animate .role-fit-card.reveal.is-visible,
 .js-animate .resume-card.reveal.is-visible,
 .js-animate .skill-grid .skill-cube.reveal.is-visible,
 .js-animate .contact-grid .reveal.is-visible {
@@ -1377,6 +1422,7 @@ footer {
   .js-animate .hero-media.reveal,
   .js-animate .case.reveal,
   .js-animate .summary .reveal,
+  .js-animate .role-fit-card.reveal,
   .js-animate .resume-card.reveal,
   .js-animate .skill-grid .skill-cube.reveal,
   .js-animate .contact-grid .reveal,
@@ -1414,6 +1460,10 @@ footer {
 }
 
 @media (max-width: 1040px) {
+  .role-fit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .skill-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1459,6 +1509,7 @@ footer {
   }
 
   .summary,
+  .role-fit-grid,
   .resume-card,
   .contact-grid,
   .skill-grid {
