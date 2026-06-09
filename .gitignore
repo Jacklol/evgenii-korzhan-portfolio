@@ -1,0 +1,12 @@
+# LocalMind Studio is a separate website/repository.
+# Keep copied Studio artifacts out of the personal portfolio repo by default.
+studio.html
+studio.css
+studio.js
+partners.html
+llms.txt
+robots.txt
+sitemap.xml
+assets/localmind-*
+assets/studio-favicon.svg
+
