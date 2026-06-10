@@ -167,7 +167,7 @@ function setupParticleShowcase() {
     "231, 198, 111",
     "238, 246, 242",
   ];
-  const skillHotspots = [
+  const baseSkillHotspots = [
     {
       id: "architecture",
       ratio: 0.08,
@@ -225,6 +225,65 @@ function setupParticleShowcase() {
       body: "AI for routine work, refactoring, tests and research with human review.",
     },
   ];
+  const vueSkillHotspots = [
+    {
+      id: "architecture",
+      ratio: 0.08,
+      kicker: "Architecture",
+      title: "Vue component architecture",
+      body: "Feature modules, shared UI, typed props/state, routing and API boundaries that can grow.",
+    },
+    {
+      id: "api",
+      ratio: 0.2,
+      kicker: "Integration",
+      title: "API-driven Vue screens",
+      body: "Loading, error, empty, validation, refresh, auth and list states for real product flows.",
+    },
+    {
+      id: "performance",
+      ratio: 0.33,
+      kicker: "Browser work",
+      title: "Performance and browser behavior",
+      body: "Practical fixes for heavy screens, slow networks, browser differences and production stability.",
+    },
+    {
+      id: "native",
+      ratio: 0.48,
+      kicker: "UI stack",
+      title: "UI Kit and Tailwind-style CSS",
+      body: "Reusable components, responsive layouts, utility-class thinking, SCSS and design-to-code delivery.",
+    },
+    {
+      id: "offline",
+      ratio: 0.6,
+      kicker: "Motion",
+      title: "CSS and JS animations",
+      body: "Medium-complexity transitions, CSS animations and JS-driven interactions without overengineering.",
+    },
+    {
+      id: "legacy",
+      ratio: 0.72,
+      kicker: "Existing product",
+      title: "Improve existing components",
+      body: "Understand current structure, reduce bugs, review code and improve components without rewrites.",
+    },
+    {
+      id: "release",
+      ratio: 0.85,
+      kicker: "Team delivery",
+      title: "Estimates and code review",
+      body: "Discuss decisions, estimate scope, work with Git reviews and keep implementation understandable.",
+    },
+    {
+      id: "ai",
+      ratio: 0.94,
+      kicker: "Mindset",
+      title: "KISS and YAGNI first",
+      body: "Simple maintainable solutions first, with abstractions only when they remove real complexity.",
+    },
+  ];
+  const skillHotspots = (widget?.dataset.particleProfile || shell.dataset.particleProfile) === "vue" ? vueSkillHotspots : baseSkillHotspots;
   const state = {
     width: 0,
     height: 0,
@@ -1040,7 +1099,13 @@ const modalTitle = document.querySelector("#gallery-title");
 const modalNote = document.querySelector("#gallery-note");
 const wrapper = document.querySelector("#gallery-wrapper");
 const closeButton = document.querySelector("[data-gallery-close]");
+const assetBase = document.body.dataset.assetBase || ".";
 let activeSwiper;
+
+function resolveAssetPath(src) {
+  if (!src.startsWith("./assets/")) return src;
+  return `${assetBase}${src.slice(1)}`;
+}
 
 function openGallery(key) {
   const gallery = galleries[key];
@@ -1054,7 +1119,7 @@ function openGallery(key) {
       return `
         <div class="swiper-slide${isWide ? " wide-slide" : ""}">
           <figure class="screen-shot${isWide ? " screen-shot-wide" : ""}">
-            <img src="${src}" alt="${label}" loading="eager" />
+            <img src="${resolveAssetPath(src)}" alt="${label}" loading="eager" />
             <figcaption>${label}</figcaption>
           </figure>
         </div>

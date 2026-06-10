@@ -3,205 +3,512 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Evgenii Korzhan - Vue.js Frontend CV</title>
+    <title>Evgenii Korzhan - Vue.js Frontend Portfolio</title>
     <meta name="robots" content="noindex, nofollow" />
     <meta
       name="description"
-      content="Targeted Vue.js frontend CV for Evgenii Korzhan: Vue, TypeScript, reusable UI, product frontend, API integration, animations, code review, and production support."
+      content="Targeted Vue.js frontend portfolio for Evgenii Korzhan: Vue, TypeScript, reusable UI, UI Kit work, API integration, animations, code review and production support."
     />
     <meta name="theme-color" content="#17211d" />
     <link rel="icon" href="../../assets/favicon.svg?v=20260609-ek" type="image/svg+xml" />
-    <link rel="stylesheet" href="../../resume.css?v=20260610-vue-dev-1" />
+    <link rel="stylesheet" href="../../vendor/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../styles.css?v=20260610-vue-portfolio-2" />
   </head>
-  <body>
-    <main class="page">
-      <div class="topbar">
-        <div class="mark">EK</div>
-        <a class="download" href="./evgenii-korzhan-vue-frontend-cv.pdf" download="evgenii-korzhan-vue-frontend-cv.pdf">Download PDF</a>
-      </div>
+  <body data-asset-base="../..">
+    <header class="hero">
+      <nav class="nav" aria-label="Portfolio navigation">
+        <a class="brand" href="#top">Evgenii Korzhan</a>
+        <div class="nav-links">
+          <a href="#cases">Cases</a>
+          <a href="#skills">Skills</a>
+          <a href="#resume">CV</a>
+          <a href="#call">Call</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
 
-      <header class="hero">
-        <div>
+      <section id="top" class="hero-grid">
+        <div class="hero-copy">
           <p class="eyebrow">Frontend Developer - Vue.js</p>
-          <h1>Evgenii Korzhan</h1>
-          <p class="subtitle">Product frontend, reusable UI, TypeScript and production delivery</p>
-          <p class="summary">
-            Frontend and mobile developer since 2018. I build and improve product interfaces, reusable components, API-driven screens, typed frontend flows and production-ready UI. I can join an existing team, discuss technical decisions, review code and keep delivery practical.
+          <h1>Vue-ready product interfaces that are clean, fast, and easy to evolve.</h1>
+          <p class="lead">
+            I have worked with frontend products since 2018. I build and improve reusable UI, typed product flows, API-driven screens, animations, and maintainable components for teams that need stable delivery.
           </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#cases">View cases</a>
+            <a class="button secondary" href="./evgenii-korzhan-vue-frontend-cv.pdf" download="evgenii-korzhan-vue-frontend-cv.pdf">Download CV</a>
+            <a class="button secondary" href="mailto:localmindstudio@gmail.com">Contact me</a>
+          </div>
         </div>
-        <aside class="contact" aria-label="Contact details">
-          <div>
-            <span>Email</span>
-            <strong><a href="mailto:localmindstudio@gmail.com">localmindstudio@gmail.com</a></strong>
+        <div class="particle-widget" data-particle-widget data-particle-profile="vue">
+          <div class="particle-showcase" data-particle-showcase aria-label="Explore Vue frontend skill particles" tabindex="0">
+            <canvas class="particle-canvas" data-particle-canvas aria-hidden="true"></canvas>
+            <span class="particle-tooltip" data-particle-tooltip aria-hidden="true">
+              <span class="particle-tooltip-kicker" data-particle-tooltip-kicker></span>
+              <strong data-particle-tooltip-title></strong>
+              <span data-particle-tooltip-body></span>
+            </span>
+            <button class="particle-fullscreen-button" type="button" data-particle-fullscreen aria-label="Open full screen" title="Open full screen">
+              <svg class="particle-fullscreen-icon particle-fullscreen-icon-expand" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 4H4v5" />
+                <path d="M4 4l7 7" />
+                <path d="M15 4h5v5" />
+                <path d="M20 4l-7 7" />
+                <path d="M9 20H4v-5" />
+                <path d="M4 20l7-7" />
+                <path d="M15 20h5v-5" />
+                <path d="M20 20l-7-7" />
+              </svg>
+              <svg class="particle-fullscreen-icon particle-fullscreen-icon-compress" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 9h5V4" />
+                <path d="M11 11 4 4" />
+                <path d="M20 9h-5V4" />
+                <path d="M13 11l7-7" />
+                <path d="M4 15h5v5" />
+                <path d="M11 13l-7 7" />
+                <path d="M20 15h-5v5" />
+                <path d="M13 13l7 7" />
+              </svg>
+            </button>
           </div>
-          <div>
-            <span>Telegram</span>
-            <strong><a href="https://t.me/jackkorlive">@jackkorlive</a></strong>
+          <div class="particle-game" data-particle-game>
+            <div class="particle-game-stats" aria-live="polite">
+              <span><strong data-particle-game-time>10.0</strong>s</span>
+              <span><strong data-particle-game-score>0</strong> nodes</span>
+            </div>
+            <button class="particle-game-start" type="button" data-particle-game-start>Start 10s</button>
+            <p data-particle-game-result>Pop only red targets. Score 12 to win.</p>
           </div>
-          <div>
-            <span>Phone</span>
-            <strong><a href="tel:+375259339465">+375 25 933 94 65</a></strong>
-          </div>
-          <div>
-            <span>Portfolio</span>
-            <strong><a href="../../index.html">Full portfolio</a></strong>
-          </div>
-          <div>
-            <span>Location</span>
-            <strong>Minsk, Belarus / Remote</strong>
-          </div>
-        </aside>
-      </header>
+        </div>
+      </section>
+    </header>
 
-      <section class="metrics" aria-label="Key numbers">
-        <div class="metric">
-          <strong>Since 2018</strong>
-          <span>Commercial frontend work</span>
+    <main>
+      <section class="summary" aria-label="Developer summary">
+        <div>
+          <span>Since 2018</span>
+          <p>Commercial frontend work</p>
         </div>
-        <div class="metric">
-          <strong>Vue + React</strong>
-          <span>Product UI experience</span>
+        <div>
+          <span>Vue + React</span>
+          <p>Product UI experience</p>
         </div>
-        <div class="metric">
-          <strong>TypeScript</strong>
-          <span>Typed frontend delivery</span>
+        <div>
+          <span>TypeScript</span>
+          <p>Typed UI, APIs, state</p>
         </div>
-        <div class="metric">
-          <strong>B2 English</strong>
-          <span>Technical calls and reviews</span>
+        <div>
+          <span>B2 English</span>
+          <p>Technical calls and messages</p>
         </div>
       </section>
 
-      <div class="content">
-        <div>
-          <section>
-            <h2>Fit for 01.tech Vue.js Role</h2>
-            <ul>
-              <li>Commercial frontend experience from 2018: product UI, reusable components, API integration and production support.</li>
-              <li>Vue.js and modern frontend stack context: Vue, Vue Router, Vuex/Pinia concepts, Nuxt.js context, React, TypeScript and JavaScript.</li>
-              <li>Comfortable improving existing components, discussing architecture, estimating tasks, reviewing code and supporting team quality.</li>
-              <li>Good fit for UI Kit work: component composition, forms, lists, responsive layouts, Tailwind-style utility thinking and design-to-code delivery.</li>
-              <li>Can implement medium UI animations with CSS transitions, CSS animations and JavaScript-driven interaction when needed.</li>
-              <li>Practical engineering mindset: KISS, YAGNI, maintainable modules, browser behavior, performance and production debugging.</li>
-            </ul>
-          </section>
+      <section class="section role-fit" aria-labelledby="role-fit-title">
+        <div class="section-heading">
+          <p class="eyebrow">Vue.js role fit</p>
+          <h2 id="role-fit-title">Signals for the 01.tech frontend position</h2>
+        </div>
+        <div class="role-fit-grid">
+          <article class="role-fit-card">
+            <span>Core stack</span>
+            <strong>Vue.js, TypeScript, component composition</strong>
+            <p>Production frontend work with reusable UI, typed flows, state, forms, lists and maintainable feature structure.</p>
+          </article>
+          <article class="role-fit-card">
+            <span>Vue ecosystem</span>
+            <strong>Vue Router, Vuex / Pinia, Nuxt.js context</strong>
+            <p>Comfortable with Vue ecosystem concepts and with joining an existing product frontend without unnecessary rewrites.</p>
+          </article>
+          <article class="role-fit-card">
+            <span>UI delivery</span>
+            <strong>UI Kit work, Tailwind-style CSS, animations</strong>
+            <p>Component polish, responsive layouts, CSS transitions, CSS animations and JS-driven interactions when the product needs them.</p>
+          </article>
+          <article class="role-fit-card">
+            <span>Team practice</span>
+            <strong>Code review, estimation, KISS, YAGNI, SOLID context</strong>
+            <p>Can discuss technical decisions, estimate scope, review code and keep frontend modules understandable.</p>
+          </article>
+        </div>
+      </section>
 
-          <section>
-            <h2>Experience</h2>
-            <article class="item">
-              <h3>Bacca - React Native / Frontend Developer</h3>
-              <p class="meta">April 2023 - Present</p>
-              <ul>
-                <li>Build and improve mobile and frontend products with React Native, React, Vue, JavaScript and TypeScript.</li>
-                <li>Deliver reusable UI, API-driven screens, state, forms, debugging, performance fixes and production support.</li>
-                <li>Work with existing codebases, Git workflows, component structure and stable delivery without unnecessary rewrites.</li>
-              </ul>
-            </article>
-            <article class="item">
-              <h3>Knomary - React Native Developer</h3>
-              <p class="meta">February 2019 - August 2023</p>
-              <ul>
-                <li>Started a cross-platform business app from scratch: architecture, UI, logic, navigation and integrations.</li>
-                <li>Worked with forms, localization, offline flows, files, branding, API integrations and platform-specific behavior.</li>
-              </ul>
-            </article>
-            <article class="item">
-              <h3>Softteco - Software Engineer</h3>
-              <p class="meta">October 2018 - February 2019</p>
-              <ul>
-                <li>Main developer for a UK auto dealer app: UI, API requests, camera/media features, upload flows and production fixes.</li>
-              </ul>
-            </article>
-            <article class="item">
-              <h3>Exadel - Software Engineer</h3>
-              <p class="meta">April 2018 - September 2018</p>
-              <ul>
-                <li>Frontend development with JavaScript, React, Redux, Angular, RxJS, SCSS, Shopify and Ant Design.</li>
-              </ul>
-            </article>
-          </section>
-
-          <section>
-            <h2>How I Work</h2>
-            <ul>
-              <li>I prefer simple, readable solutions first and add abstractions only when they remove real complexity.</li>
-              <li>I can estimate a task, split the scope, clarify edge cases and keep the team aligned during implementation.</li>
-              <li>I care about stable UI states: loading, error, empty, validation, permissions, slow network and browser differences.</li>
-            </ul>
-          </section>
+      <section id="cases" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Selected work</p>
+          <h2>Real mobile apps I can talk about</h2>
         </div>
 
-        <aside>
-          <section class="side-card">
-            <h2>Core Skills</h2>
-            <div class="tags">
-              <span>Vue.js</span>
-              <span>Vue Router</span>
-              <span>Vuex / Pinia</span>
-              <span>Nuxt.js context</span>
-              <span>TypeScript</span>
-              <span>JavaScript</span>
-              <span>React</span>
-              <span>React Native</span>
-              <span>Component architecture</span>
-              <span>UI Kit work</span>
-              <span>Tailwind-style CSS</span>
-              <span>SCSS</span>
-              <span>CSS transitions</span>
-              <span>CSS animations</span>
-              <span>Responsive UI</span>
-              <span>REST API</span>
-              <span>GraphQL context</span>
-              <span>Forms</span>
-              <span>Validation</span>
-              <span>Code review</span>
-              <span>Git</span>
-              <span>KISS / YAGNI</span>
-              <span>SOLID context</span>
-              <span>MVVM context</span>
-              <span>Performance</span>
-              <span>Cypress</span>
-              <span>Jest</span>
+        <article class="case">
+          <button class="phone finance-phone case-trigger" type="button" data-gallery="ypa" aria-label="Open YPA Finance screens">
+            <div class="phone-top"></div>
+            <div class="screen">
+              <img class="phone-preview" src="../../assets/ypa-product/ypa-dashboard.svg" alt="YPA Finance screen preview" />
             </div>
-          </section>
-
-          <section class="side-card">
-            <h2>Relevant Projects</h2>
-            <div class="project-list">
-              <div class="project">
-                <strong>Bacca frontend products</strong>
-                <span>Frontend and mobile product work with Vue, React, TypeScript, reusable UI and production fixes.</span>
-              </div>
-              <div class="project">
-                <strong>YPA Finance</strong>
-                <span>Dashboard, AI coach, budgeting, debt payoff, alerts, auth and API-driven finance screens.</span>
-              </div>
-              <div class="project">
-                <strong>Demetra</strong>
-                <span>B2B catalog, sales flows, product lists, order screens and admin/product context.</span>
-              </div>
-              <div class="project">
-                <strong>Rutilus / Norilsk Nickel</strong>
-                <span>Enterprise workflows, document details, search, approvals, support and optimization.</span>
-              </div>
-              <div class="project">
-                <strong>SmartEat</strong>
-                <span>Forms, food search, profile, diary, questionnaires, validation and API screens.</span>
-              </div>
+          </button>
+          <div class="case-copy">
+            <div class="case-title">
+              <h3>YPA Finance</h3>
+              <a href="https://www.ypa.finance/en" target="_blank" rel="noreferrer">Website</a>
             </div>
-          </section>
-
-          <section class="side-card">
-            <h2>Education</h2>
-            <p class="education-line">
-              <strong>BNTU</strong> - 2015, logistics / transport organization<br />
-              <strong>The Rolling Scopes School</strong> - 2016, JavaScript / Front-end
+            <p>
+              YPA Finance is a finance and money coach product. It includes dashboard, AI coach, budget planning, debt payoff, alerts, credit insights, and auth flows.
             </p>
-          </section>
-        </aside>
-      </div>
+            <h4>What I did</h4>
+            <ul>
+              <li>Built typed UI screens for finance workflows and production features.</li>
+              <li>Worked with reusable UI, state, API integration, and performance.</li>
+              <li>Used proven libraries and AI tools to move faster without losing quality.</li>
+            </ul>
+            <button class="screen-link" type="button" data-gallery="ypa">View app screens</button>
+          </div>
+        </article>
 
-      <p class="print-note">Targeted CV for the Frontend Developer Vue.js vacancy. Full portfolio is available by direct link.</p>
+        <article class="case">
+          <button class="phone nutrition-phone case-trigger" type="button" data-gallery="smarteat" aria-label="Open SmartEat screens">
+            <div class="phone-top"></div>
+            <div class="screen">
+              <img class="phone-preview" src="../../assets/smarteat-real/smarteat-02.png" alt="SmartEat screen preview" />
+            </div>
+          </button>
+          <div class="case-copy">
+            <div class="case-title">
+              <h3>SmartEat</h3>
+              <span>Nutrition / meal tracking</span>
+            </div>
+            <p>
+              SmartEat is a nutrition app for meals, food search, profile data, health diary, and personal settings.
+            </p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Implemented food, meal, profile, questionnaire, and diary flows.</li>
+              <li>Built forms, validation, navigation, reusable UI, and API-driven screens.</li>
+              <li>Helped turn design flows into a working mobile product experience.</li>
+            </ul>
+            <button class="screen-link" type="button" data-gallery="smarteat">View app screens</button>
+          </div>
+        </article>
+
+        <article class="case">
+          <button class="phone agro-phone case-trigger" type="button" data-gallery="demetra" aria-label="Open Demetra screens">
+            <div class="phone-top"></div>
+            <div class="screen">
+              <img class="phone-preview" src="../../assets/demetra-real/demetra-preview.png" alt="Demetra screen preview" />
+            </div>
+          </button>
+          <div class="case-copy">
+            <div class="case-title">
+              <h3>Demetra</h3>
+              <span>Agribusiness / sales operations</span>
+            </div>
+            <p>
+              Demetra is an agribusiness product for catalog, orders, sales workflows, and admin operations.
+            </p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Built mobile screens for catalog, product lists, cart, orders, profile, and auth.</li>
+              <li>Worked with API lists, forms, navigation, state, and reusable business UI.</li>
+              <li>Can also discuss the admin panel context: orders, catalog management, and reporting.</li>
+            </ul>
+            <div class="case-actions">
+              <button class="screen-link" type="button" data-gallery="demetra">View mobile screens</button>
+              <button class="screen-link" type="button" data-gallery="demetraAdmin">View admin panel</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="case">
+          <button class="phone onboarding-phone case-trigger" type="button" data-gallery="empiflow" aria-label="Open Empiflow screens">
+            <div class="phone-top"></div>
+            <div class="screen">
+              <img class="phone-preview" src="../../assets/empiflow-real/empiflow-preview.png" alt="Empiflow screen preview" />
+            </div>
+          </button>
+          <div class="case-copy">
+            <div class="case-title">
+              <h3>Empiflow</h3>
+              <a href="https://apkpure.com/empiflow/com.empiflow" target="_blank" rel="noreferrer">APKPure</a>
+            </div>
+            <p>
+              Empiflow is an onboarding app for employee tracks, learning activities, library files, and progress.
+            </p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Implemented onboarding tracks, activity states, dashboard, and learning screens.</li>
+              <li>Worked with navigation, profile, documents, API data, and maintainable feature modules.</li>
+              <li>Joined the codebase and delivered stable features without slowing the team down.</li>
+            </ul>
+            <button class="screen-link" type="button" data-gallery="empiflow">View app screens</button>
+          </div>
+        </article>
+
+        <article class="case">
+          <button class="phone documents-phone case-trigger" type="button" data-gallery="rutilus" aria-label="Open Rutilus Norilsk Nickel screens">
+            <div class="phone-top"></div>
+            <div class="screen">
+              <img class="phone-preview" src="../../assets/rutilus-real/rutilus-02.jpg" alt="Rutilus Norilsk Nickel screen preview" />
+            </div>
+          </button>
+          <div class="case-copy">
+            <div class="case-title">
+              <h3>Rutilus / Norilsk Nickel</h3>
+              <span>Enterprise document workflows</span>
+            </div>
+            <p>
+              Rutilus is an enterprise app for document workflows, PIN access, assignments, deadlines, search, and approvals.
+            </p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Supported and improved an existing production product codebase.</li>
+              <li>Worked on flows with thousands of documents, search, filters, and PDF preview.</li>
+              <li>Helped with production fixes, release support, and performance improvements.</li>
+            </ul>
+            <button class="screen-link" type="button" data-gallery="rutilus">View app screens</button>
+          </div>
+        </article>
+
+        <article class="case">
+          <button class="phone media-phone case-trigger" type="button" data-gallery="auto" aria-label="Open Auto Dealers screens">
+            <div class="phone-top"></div>
+            <div class="screen">
+              <img class="phone-preview" src="../../assets/auto-real/auto-01.svg" alt="Auto dealers media app screen preview" />
+            </div>
+          </button>
+          <div class="case-copy">
+            <div class="case-title">
+              <h3>Auto Dealers Media App</h3>
+              <span>Softteco</span>
+            </div>
+            <p>
+              A cross-platform app for UK auto dealers to capture vehicle photos, videos, 360 media, and listing details.
+            </p>
+            <h4>What I did</h4>
+            <ul>
+              <li>Main frontend/mobile developer on the project.</li>
+              <li>Built UI, app logic, API requests, camera/media features, and upload flows.</li>
+              <li>Worked with a UK backend team and Theta 360 device integration.</li>
+            </ul>
+            <button class="screen-link" type="button" data-gallery="auto">View app screens</button>
+          </div>
+        </article>
+      </section>
+
+      <section id="skills" class="section skills">
+        <div class="section-heading">
+          <p class="eyebrow">Practical strengths</p>
+          <h2>What I bring to a Vue frontend product</h2>
+        </div>
+        <div class="skill-grid">
+          <button class="skill-cube" type="button">
+            <span class="cube-inner">
+              <span class="cube-face cube-front">
+                <span class="skill-index">01</span>
+                <strong>Component architecture</strong>
+                <span class="skill-tag">Vue / TS</span>
+                <span class="skill-hint">Hover for example</span>
+              </span>
+              <span class="cube-face cube-back">
+                <span class="skill-tag">Example</span>
+                <strong>Clean structure for real apps</strong>
+                <span>I split pages, feature modules, shared UI, API calls, and state in a way that is easy to grow. YPA Finance and Demetra are good examples to discuss.</span>
+              </span>
+            </span>
+          </button>
+          <button class="skill-cube" type="button">
+            <span class="cube-inner">
+              <span class="cube-face cube-front">
+                <span class="skill-index">02</span>
+                <strong>Product UI from scratch</strong>
+                <span class="skill-tag">Knomary / B2B app</span>
+                <span class="skill-hint">Hover for example</span>
+              </span>
+              <span class="cube-face cube-back">
+                <span class="skill-tag">Example</span>
+                <strong>From zero to working UI</strong>
+                <span>I can start with an empty codebase and build the first stable version: structure, UI, routing, logic, and integrations.</span>
+              </span>
+            </span>
+          </button>
+          <button class="skill-cube" type="button">
+            <span class="cube-inner">
+              <span class="cube-face cube-front">
+                <span class="skill-index">03</span>
+                <strong>Existing components</strong>
+                <span class="skill-tag">Rutilus / Bacca</span>
+                <span class="skill-hint">Hover for example</span>
+              </span>
+              <span class="cube-face cube-back">
+                <span class="skill-tag">Example</span>
+                <strong>Join, understand, improve</strong>
+                <span>I can enter an existing project, find the real problem, fix bugs, and improve stability without unnecessary rewrites. Rutilus is a strong example.</span>
+              </span>
+            </span>
+          </button>
+          <button class="skill-cube" type="button">
+            <span class="cube-inner">
+              <span class="cube-face cube-front">
+                <span class="skill-index">04</span>
+                <strong>API-driven screens</strong>
+                <span class="skill-tag">SmartEat / Demetra</span>
+                <span class="skill-hint">Hover for example</span>
+              </span>
+              <span class="cube-face cube-back">
+                <span class="skill-tag">Example</span>
+                <strong>Real API states</strong>
+                <span>I build screens that handle loading, errors, empty states, forms, validation, refresh, and lists. This transfers well to REST, GraphQL, and CMS data.</span>
+              </span>
+            </span>
+          </button>
+          <button class="skill-cube" type="button">
+            <span class="cube-inner">
+              <span class="cube-face cube-front">
+                <span class="skill-index">05</span>
+                <strong>Complex workflows</strong>
+                <span class="skill-tag">Norilsk Nickel</span>
+                <span class="skill-hint">Hover for example</span>
+              </span>
+              <span class="cube-face cube-back">
+                <span class="skill-tag">Example</span>
+                <strong>Heavy product states</strong>
+                <span>In Rutilus I worked with search, filters, document details, assignments, and deadlines. The goal was simple: keep heavy workflows usable.</span>
+              </span>
+            </span>
+          </button>
+          <button class="skill-cube" type="button">
+            <span class="cube-inner">
+              <span class="cube-face cube-front">
+                <span class="skill-index">06</span>
+                <strong>UI Kit and motion</strong>
+                <span class="skill-tag">CSS / JS</span>
+                <span class="skill-hint">Hover for example</span>
+              </span>
+              <span class="cube-face cube-back">
+                <span class="skill-tag">Example</span>
+                <strong>Polished interactions</strong>
+                <span>I can build responsive UI, practical CSS transitions, CSS animations, and JS-driven interactions without turning the codebase into a custom effects system.</span>
+              </span>
+            </span>
+          </button>
+          <button class="skill-cube" type="button">
+            <span class="cube-inner">
+              <span class="cube-face cube-front">
+                <span class="skill-index">07</span>
+                <strong>Files and edge states</strong>
+                <span class="skill-tag">Empiflow / Rutilus</span>
+                <span class="skill-hint">Hover for example</span>
+              </span>
+              <span class="cube-face cube-back">
+                <span class="skill-tag">Example</span>
+                <strong>Works when product state is messy</strong>
+                <span>I can work with files, cached data, local state, slow networks, permissions, loading, empty, and error states.</span>
+              </span>
+            </span>
+          </button>
+          <button class="skill-cube" type="button">
+            <span class="cube-inner">
+              <span class="cube-face cube-front">
+                <span class="skill-index">08</span>
+                <strong>Team delivery</strong>
+                <span class="skill-tag">Git / review / estimates</span>
+                <span class="skill-hint">Hover for example</span>
+              </span>
+              <span class="cube-face cube-back">
+                <span class="skill-tag">Example</span>
+                <strong>Ready for real users</strong>
+                <span>I have worked with production builds, code review feedback, debugging, performance fixes, and final delivery for real users.</span>
+              </span>
+            </span>
+          </button>
+          <button class="skill-cube" type="button">
+            <span class="cube-inner">
+              <span class="cube-face cube-front">
+                <span class="skill-index">09</span>
+                <strong>Pragmatic engineering</strong>
+                <span class="skill-tag">Fast execution</span>
+                <span class="skill-hint">Hover for example</span>
+              </span>
+              <span class="cube-face cube-back">
+                <span class="skill-tag">Example</span>
+                <strong>KISS and YAGNI first</strong>
+                <span>I keep implementation simple until the product needs more structure. I still care about readability, boundaries, tests, and long-term support.</span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section id="call" class="section callout">
+        <p class="eyebrow">Call answer</p>
+        <h2>How I usually explain myself</h2>
+        <p>
+          I am a frontend developer with real production experience across Vue, React, React Native, TypeScript, reusable UI, and API-driven screens. I can improve existing components, build new product flows, discuss tradeoffs, review code, estimate work, and keep delivery practical.
+        </p>
+      </section>
+
+      <section id="resume" class="section resume-section">
+        <div class="resume-card">
+          <div>
+            <p class="eyebrow">Prepared CV</p>
+            <h2>Vue.js Frontend CV</h2>
+            <p>
+              Targeted CV for this Vue.js role: Vue ecosystem context, TypeScript, UI Kit work, animations, product frontend, code review, production support, and projects I can explain clearly.
+            </p>
+          </div>
+          <div class="resume-actions">
+            <a class="button primary" href="./evgenii-korzhan-vue-frontend-cv.pdf" download="evgenii-korzhan-vue-frontend-cv.pdf">Download PDF</a>
+            <a class="button secondary" href="./resume.html" target="_blank" rel="noreferrer">Open online</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>Ready to discuss the frontend role</h2>
+        </div>
+        <div class="contact-grid">
+          <a href="mailto:localmindstudio@gmail.com">
+            <span>Email</span>
+            <strong>localmindstudio@gmail.com</strong>
+          </a>
+          <a href="https://t.me/jackkorlive" target="_blank" rel="noreferrer">
+            <span>Telegram</span>
+            <strong>@jackkorlive</strong>
+          </a>
+          <a href="tel:+375259339465">
+            <span>Phone</span>
+            <strong>+375 25 933 94 65</strong>
+          </a>
+          <a href="https://www.linkedin.com/in/evgenii-korzhan-442500195/" target="_blank" rel="noreferrer">
+            <span>LinkedIn</span>
+            <strong>evgenii-korzhan</strong>
+          </a>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <p>Portfolio includes real project screens and selected mobile stories I can discuss in a client call.</p>
+    </footer>
+
+    <dialog class="gallery-modal" id="screen-gallery" aria-labelledby="gallery-title">
+      <div class="gallery-shell">
+        <div class="gallery-header">
+          <div>
+            <p class="eyebrow">Gallery</p>
+            <h2 id="gallery-title">App screens</h2>
+            <p id="gallery-note">Screens I can explain during the call.</p>
+          </div>
+          <button class="gallery-close" type="button" data-gallery-close aria-label="Close gallery">Close</button>
+        </div>
+        <div class="swiper gallery-swiper">
+          <div class="swiper-wrapper" id="gallery-wrapper"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </dialog>
+    <script src="../../vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../../app.js?v=20260610-vue-profile"></script>
   </body>
 </html>
