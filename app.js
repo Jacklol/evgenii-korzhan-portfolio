@@ -230,14 +230,14 @@ function setupParticleShowcase() {
       id: "architecture",
       ratio: 0.08,
       kicker: "Architecture",
-      title: "Vue component architecture",
-      body: "Feature modules, shared UI, typed props/state, routing and API boundaries that can grow.",
+      title: "React/RN base, Vue-ready structure",
+      body: "Feature modules, shared UI, typed state, routing and API boundaries that transfer well across React and Vue.",
     },
     {
       id: "api",
       ratio: 0.2,
       kicker: "Integration",
-      title: "API-driven Vue screens",
+      title: "API-driven product screens",
       body: "Loading, error, empty, validation, refresh, auth and list states for real product flows.",
     },
     {
@@ -251,8 +251,8 @@ function setupParticleShowcase() {
       id: "native",
       ratio: 0.48,
       kicker: "UI stack",
-      title: "UI Kit and Tailwind-style CSS",
-      body: "Reusable components, responsive layouts, utility-class thinking, SCSS and design-to-code delivery.",
+      title: "UI Kit and component work",
+      body: "Reusable components, responsive layouts, utility-class thinking, SCSS and design-to-code delivery across frontend stacks.",
     },
     {
       id: "offline",
@@ -266,7 +266,7 @@ function setupParticleShowcase() {
       ratio: 0.72,
       kicker: "Existing product",
       title: "Improve existing components",
-      body: "Understand current structure, reduce bugs, review code and improve components without rewrites.",
+      body: "Understand current React, React Native or Vue structure, reduce bugs, review code and improve components without rewrites.",
     },
     {
       id: "release",
